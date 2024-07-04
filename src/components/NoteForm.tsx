@@ -1,23 +1,22 @@
 "use client";
-import { log } from "console";
+
 import React, { useState } from "react";
+import { useNotes } from "@/context/NoteContext";
 
 export default function NoteForm() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const { createNote } = useNotes();
+
   return (
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        const res = await fetch("api/notes", {
-          method: "POST",
-          body: JSON.stringify({ title, content }),
-          headers: {
-            "Content-Type": "application/json",
-          },
+        await createNote({
+          title,
+          content,
         });
-        const data = await res.json();
-        console.log(data);
       }}>
       <input
         type="text"
