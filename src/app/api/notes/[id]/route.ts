@@ -2,17 +2,18 @@ import { NextResponse } from "next/server";
 
 export function GET() {
   return NextResponse.json({
-    message: "Gettin notes...",
+    message: "Gettin single note...",
   });
 }
 
-export function POST() {
-  return NextResponse.json({
-    message: "Creating notes...",
-  });
-}
 export function DELETE() {
   return NextResponse.json({
-    message: "Deleting notes...",
+    message: "Deleting single note...",
+  });
+}
+
+export function PUT() {
+  return NextResponse.json({
+    message: "Updating single note...",
   });
 }
