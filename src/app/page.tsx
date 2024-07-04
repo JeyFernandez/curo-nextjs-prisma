@@ -3,6 +3,7 @@ import NoteForm from "../components/NoteForm";
 import { useNotes } from "@/context/NoteContext";
 import { useEffect } from "react";
 import { Note } from "@/interfaces/note.interface";
+import NoteCard from "@/components/NoteCard";
 
 function HomePage() {
   const { notes, loadNotes } = useNotes();
@@ -24,10 +25,7 @@ function HomePage() {
         </h1>
         <div>
           {notes.map((note: Note) => (
-            <div key={note.id} className="bg-slate-400 p-4 m-2">
-              <h2>{note.title}</h2>
-              <p>{note.content}</p>
-            </div>
+            <NoteCard note={note} key={note.id} />
           ))}
         </div>
       </div>
