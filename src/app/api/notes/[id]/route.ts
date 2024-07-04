@@ -22,10 +22,7 @@ export async function GET(req: Request, { params }: Params) {
         }
       );
     }
-    return NextResponse.json({
-      message: "Gettin single note...",
-      data: note,
-    });
+    return NextResponse.json(note);
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json(

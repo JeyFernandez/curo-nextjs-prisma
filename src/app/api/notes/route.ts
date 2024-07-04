@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
+
 export async function GET() {
   try {
-    const notas = await prisma.note.findMany();
-    return NextResponse.json({
-      message: "Gettin notes...",
-      data: notas,
-    });
+    const notes = await prisma.note.findMany();
+    return NextResponse.json(notes);
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json(
